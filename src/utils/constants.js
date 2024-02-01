@@ -21,6 +21,8 @@ export const categories = [
   { name: 'Coding Courses', icon: <CodeIcon />, },
   { name: 'FS PT 10', icon: <CodeIcon />, },
   { name: 'FS PT 15', icon: <CodeIcon />, },
+  { name: 'React Projects', icon: <CodeIcon />, },
+  { name: 'React Native Projects', icon: <CodeIcon />, },
   { name: 'ReactJS', icon: <CodeIcon />, },
   // { name: 'NextJS', icon: <CodeIcon />, },
   // { name: 'Music', icon: <MusicNoteIcon /> },
@@ -40,6 +42,8 @@ export const categories = [
 export const specialPlaylistVideosCategories = {
   'FS PT 10': "PLjMIC_h0rNV1GmEoxd_7C77CJlbv_sHun",
   'FS PT 15': "PLjMIC_h0rNV2LzioxnbG52-2fveT64u_w",
+  'React Projects': "PLaoO3Xm3jZejA0dBMp526kTQ411lAMNw-",
+  'React Native Projects': "PLaoO3Xm3jZeiXlgtDUNxOJTuYI5y8HLED",
 }
 
 export const demoThumbnailUrl = 'https://i.ibb.co/G2L2Gwp/API-Course.png';
