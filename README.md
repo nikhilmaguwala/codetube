@@ -2,8 +2,8 @@
 
 <div align="center">
 <br />
-    <a href="" target="_blank">
-      <img src="https://raw.githubusercontent.com/nikhilmaguwala/auto-mieten/main/automieten_banner.png?token=GHSAT0AAAAAACMXOZWRYKKZ2I2TBLEU5GJMZNEHUUQ" alt="Project Banner">
+    <a href="https://codetube-nikhil.vercel.app/" target="_blank">
+      <img src="https://raw.githubusercontent.com/nikhilmaguwala/codetube/main/src/assets/codetube_thumbnail.png?token=GHSAT0AAAAAACMXOZWQ6LEZ5ZV4EIOSEUVAZN4C2AA" alt="Project Banner">
     </a>
   <br />
 
