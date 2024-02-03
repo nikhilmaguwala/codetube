@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { Box, Typography, CardContent } from "@mui/material";
 
 import { Videos } from ".";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
+import youtubeApi from "../utils/fetchFromAPI";
 
 const PlaylistDetail = () => {
   const [playlistDetail, setPlaylistDetail] = useState();
@@ -13,13 +13,17 @@ const PlaylistDetail = () => {
 
   useEffect(() => {
     const fetchResults = async () => {
-      const data = await fetchFromAPI(`playlists?part=snippet&id=${id}`);
 
-      setPlaylistDetail(data?.items[0]);
+        youtubeApi.get(`playlists?part=snippet&id=${id}`).then((response) => {
+            console.log(response.data)
+            setPlaylistDetail(response.data?.items[0]);
+        });
 
-      const videosData = await fetchFromAPI(`playlistItems?part=snippet&playlistId=${id}`)
 
-      setVideos(videosData?.items);
+        youtubeApi.get(`playlistItems?part=snippet&playlistId=${id}`).then((response) => {
+            setVideos(response.data.items);
+        });
+
     };
 
     fetchResults();

@@ -5,15 +5,17 @@ import { Typography, Box, Stack } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import { Loader } from ".";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
+import youtubeApi from "../utils/fetchFromAPI";
 
 const VideoDetail = () => {
   const [videoDetail, setVideoDetail] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
-    fetchFromAPI(`videos?part=snippet,statistics&id=${id}`)
-      .then((data) => setVideoDetail(data.items[0]))
+
+    youtubeApi.get(`videos?part=snippet,statistics&id=${id}`).then((response) => {
+        setVideoDetail(response.data.items[0]);
+    });
   }, [id]);
 
   if(!videoDetail?.snippet) return <Loader />;

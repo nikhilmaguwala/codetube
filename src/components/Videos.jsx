@@ -7,7 +7,7 @@ const Videos = ({ videos, direction }) => {
   if(videos?.length === 0) return <Loader />;
   
   return (
-    <Stack direction={direction || "row"} flexWrap="wrap" justifyContent="start" alignItems="start" gap={2}>
+    <Stack direction={direction || "row"} flexWrap="wrap" justifyContent="start" alignItems="start" gap={1.5}>
       {videos?.map((item, idx) => {
         if (item.id.kind === "youtube#video") {
           return <VideoCard key={idx} videoId={item.id.videoId} snippet={item.snippet} />;

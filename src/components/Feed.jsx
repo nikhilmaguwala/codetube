@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import { Sidebar } from ".";
-import { fetchFromAPI } from "../utils/fetchFromAPI";
+import youtubeApi from "../utils/fetchFromAPI";
 import { Videos } from ".";
 import { specialPlaylistVideosCategories } from "../utils/constants";
 
@@ -11,13 +11,22 @@ const Feed = () => {
   const [videos, setVideos] = useState(null);
 
   const fetchVideos = () => {
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
-    .then((data) => setVideos(data.items))
+    // fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+    // .then((data) => setVideos(data.items))
+
+    youtubeApi.get(`search?part=snippet&q=${selectedCategory}`).then((response) => {
+        setVideos(response.data.items);
+    });
   }
 
   const fetchPlayListVideos = (playlistId) => {
-    fetchFromAPI(`playlistItems?part=snippet&playlistId=${playlistId}`)
-    .then((data) => setVideos(data.items))
+
+    youtubeApi.get(`playlistItems?part=snippet&playlistId=${playlistId}`).then((response) => {
+        setVideos(response.data.items);
+    });
+
+    // fetchFromAPI(`playlistItems?part=snippet&playlistId=${playlistId}`)
+    // .then((data) => setVideos(data.items))
   }
 
   useEffect(() => {
@@ -37,7 +46,7 @@ const Feed = () => {
 
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
-      <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "1px solid #3d3d3d", px: { sx: 0, md: 2 } }}>
+      <Box sx={{ height: { sx: "auto", md: "95vh" }, borderRight: "1px solid #3d3d3d", px: { sx: 0, md: 2 } }}>
         <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
 
         <Typography className="copyright" variant="body2" sx={{ mt: 1.5, color: "#fff", }}>
